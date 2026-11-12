@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LOVE PROPOSAL PRANK</title>
+    <style>
+        *{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: black;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* text-align:center; */
+    background-image: url("https://images.unsplash.com/photo-1641933002027-8f91745945aa?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D");
+    background-repeat: no-repeat;
+    background-position:center;
+    background-size: cover;
+}
+.msg{
+    
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid white;
+    padding: 1rem;
+    border-radius: 1rem;
+    
+}
+#mode{
+    width: 5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    cursor:pointer;
+    border: none;
+    border-radius: 1rem;
+}
+.option {
+    /* border: 1px solid white; */
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+   
+}
+.yes,.no{
+    cursor:pointer;
+    /* border: 1px solid white; */
+    width: 5rem;
+    height: 3rem;
+    border-radius: 1rem;
+    text-align: center;
+    margin: 1rem;
+    padding-top: 0.5rem;
+    
+    /* transition:all 1s linear; */
+}
+.yes{
+    background-color: maroon;
+    color: white;
+}
+.no{
+    bottom: 20px;
+    position: absolute;
+    border: 1px solid white;
+    width: 4rem;
+    height: 2rem;
+    background-color: maroon;
+}
+
+
+
+.popup{
+    
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid white;
+    position: absolute;
+    left: 570px;
+    top: 375px;
+    border-radius: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+
+
+
+}
+
+
+
+.popup::after {
+    content: "";
+    position: absolute;
+
+    top: -10px;
+    left: 65px;
+
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.yes_popup{
+
+    width: fit-content;
+    height: fit-content;
+    border: 1px solid white;
+    position: absolute;
+    left: 570px;
+    top: 375px;
+    border-radius: 2rem;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem;
+
+}
+
+.after_yes{
+    width: fit-content;
+    height: fit-content;
+    padding: 1rem;
+    border: 1px solid white;
+    border-radius: 2rem;
+    
+    justify-content: center;
+    align-items: center;    
+}
+
+    </style>
+  </head>
+  <body>
+
+
+    <div class="msg">
+      <h2>do you love me?</h2>
+    </div>
+
+    <div class="dialog" style="display: none">hello bby, catch me.🤧😂</div>
+
+    <div class="option">
+      <button class="yes">yes</button>
+        <div class="yes_popup" style="display: none">pls hit yes..</div>
+      <div class="no">no</div>
+    </div>
+    <div class="after_yes" style="display: none;">Thankyou, Love U TOO... 😘😘</div>
+
+    <script>
+      let body = document.querySelector("body");
+     
+      let msg = document.querySelector(".msg");
+      let yes = document.querySelector(".yes");
+      let no = document.querySelector(".no");
+      let popup = document.querySelector(".dialog");
+      let yes_popup = document.querySelector(".yes_popup");
+      let after_yes = document.querySelector(".after_yes");
+      let btn_val = false;
+
+
+
+      let positions = [
+        { left: "100px", top: "100px" },
+        { left: "500px", top: "100px" },
+        { left: "100px", top: "500px" },
+        { left: "600px", top: "100px" },
+        { left: "600px", top: "300px" },
+        { left: "200px", top: "500px" },
+      ];
+      let i = 0;
+      let val = true;
+
+      no.addEventListener("mousemove", (e) => {
+        no.style.left = positions[i].left;
+        no.style.top = positions[i].top;
+        console.log("X:", positions[i].left);
+        console.log("Y:", positions[i].top);
+        i++;
+        if (val == true && i == 5) {
+          console.log("chase me...");
+          popup.style.display = "flex";
+          popup.classList.add("popup");
+          val = false;
+        }
+
+        if (i == 6) {
+          i = 0;
+
+          popup.style.display = "none";
+        }
+      });
+
+      yes.addEventListener("mouseenter",()=>{
+                yes_popup.style.display = "block";
+                yes_popup.classList.add("yes_popup");
+      })
+
+      yes.addEventListener("mouseleave",()=>{
+                yes_popup.style.display = "none";
+                yes_popup.classList.remove("yes_popup");
+      })
+
+      yes.addEventListener("click",()=>{
+            msg.style.display = "none";
+            yes.style.display = "none";
+            no.style.display = "none";
+            after_yes.style.display="flex";
+
+      })
+
+
+
+    </script>
+  </body>
+</html>
